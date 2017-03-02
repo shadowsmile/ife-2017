@@ -1,0 +1,136 @@
+body {	
+	background-color: #EEEEEE;
+	font-family: monospace;
+}
+h2 {
+	font-size: 25px;
+	font-weight: bold;
+}
+h3 {
+	font-size: 20px;
+	font-weight: bold;
+	color: #222222;
+}
+p.art-info {
+	font-size: 12px;
+	color: #555555;
+}
+p.section {
+	text-indent: 2em;
+}
+div.img-inart {
+	width: 300px;
+	height: auto;
+}
+div.navbar {
+	background-color: #DDDDDD;
+	height: 50px;
+	width: auto;
+	margin: 0;
+	padding: 0 50px 0 50px;
+}
+img.pic {
+	height: 100%;
+	width: auto;
+}
+ul.nav a:link,a:visited {
+	display:inline-block;
+	color:#222222;
+	width:auto;
+	font-weight:bold;
+	text-align:center;
+	text-decoration:none;
+}
+ul.nav a:hover,a:active {
+  text-decoration:underline;
+  color:#000000;
+}
+div.block {
+	margin: 20px;
+	padding: 10px;
+	border-width: 3px;
+	border-style: solid;
+	border-left-color: #FFFFFF;
+	border-right-color: #CCCCCC;
+	border-top-color: #FFFFFF;
+	border-bottom-color: #CCCCCC;
+	background-color: #FFFFFF;
+}
+div#art1 {
+	margin: 70px 20px 20px 20px;
+}
+.link-inline a:link,a:visited {
+	color: blue;
+	text-decoration-line: none;
+}
+.link-inline a:hover,a:active {
+	background-color: #DDDDDD;
+	text-decoration-line: underline;
+}
+ul.list {
+	list-style-type: none;
+}
+div.img-case {
+	height: auto;
+	width: 200px;
+	border: 1px solid #333333;
+}
+div.img-case p {
+	text-align: center;
+	font-size: 12px;
+}
+ol {
+	font-size: 15px;
+	font-weight: bold;
+}
+table {
+	border-collapse: collapse;
+	width: 100%;
+}
+table, td, th{
+	border: 1px solid #555555;
+	vertical-align: center;
+	padding: 5px;
+}
+th {
+	background-color: #000000;
+	color: #FFFFFF;
+}
+tr.total {
+	background-color: #BBBBBB;
+	font-weight: bold;
+}
+h2.side-title {
+	font-size: 15px;
+	font-weight: bold;
+}
+form {
+	margin-left: 200px;
+	font-size: 12px;
+}
+label {
+	width: 150px;
+	padding-right: 10px;
+	text-align: right;
+}
+input.textbox {
+	width: 150px;
+	height: 20px;
+}
+p.tips {
+	margin-left: 155px;
+	color: #AAAAAA;
+}
+input.submit-button {
+	margin-left: 155px;
+	width: 100px;
+	text-align: center;
+}
+div.copyright {
+	padding: 15px 0;
+	height: 50px;
+	width: auto;
+	background-color: #DDDDDD;
+	color: #222222;
+	text-align: center;
+}
