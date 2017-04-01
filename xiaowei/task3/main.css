@@ -1,0 +1,16 @@
+.main{	
+	background-color: #eee;
+	border-color: #999;
+	padding: 20px;
+}
+.left{
+	width: 200px;
+	padding: 20px;
+}
+.right{
+	width: 120px;
+	padding: 20px;
+}
+.center{
+	padding: 20px;
+}
