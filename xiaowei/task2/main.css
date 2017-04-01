@@ -1,7 +1,6 @@
 body {	
 	background-color: #EEEEEE;
 	font-family: monospace;
-	margin-top: 20px;
 }
 h2 {
 	font-size: 25px;
@@ -57,8 +56,11 @@ div.block {
 	border-bottom-color: #CCCCCC;
 	background-color: #FFFFFF;
 }
+div.space {
+	height: 50px;
+}
 div#art1 {
-	margin: 70px 20px 20px 20px;
+	margin: 20px;
 }
 .link-inline a:link,a:visited {
 	color: blue;
