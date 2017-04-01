@@ -7,7 +7,7 @@
 
 ## 任务描述
 
-  * 使用 HTML 与 CSS 按照 示例图（[点击查看]("http://7xrp04.com1.z0.glb.clouddn.com/task_1_3_1.png")） 实现三栏式布局。
+  * 使用 HTML 与 CSS 按照[示例图（点击查看）](http://7xrp04.com1.z0.glb.clouddn.com/task_1_3_1.png)实现三栏式布局。
   * 左右两栏宽度固定，中间一栏根据父元素宽度填充满，最外面的框应理解为浏览器。背景色为 #eee 区域的高度取决于三个子元素中最高的高度。
 
 ## 任务注意事项
@@ -21,8 +21,8 @@
 
 ## 参考资料
 
-  * MDN：position：了解 CSS position 属性的基本知识
-  * MDN：float：了解 CSS float 属性的基本知识
-  * Learn CSS Positioning in Ten Steps：通过具体的例子熟悉 position 属性
-  * 清除浮动（clearfix hack）：清除浮动是什么，如何简单地清除浮动
-  * StackOverflow：Which method of ‘clearfix’ is best?：清除浮动黑科技完整解读
+  * [MDN：position](https://developer.mozilla.org/zh-CN/docs/Web/CSS/position)：了解 CSS position 属性的基本知识
+  * [MDN：float](https://developer.mozilla.org/en-US/docs/Web/CSS/float)：了解 CSS float 属性的基本知识
+  * [Learn CSS Positioning in Ten Steps](http://www.barelyfitz.com/screencast/html-training/css/positioning/)：通过具体的例子熟悉 position 属性
+  * [清除浮动（clearfix hack）](http://zh.learnlayout.com/clearfix.html)：清除浮动是什么，如何简单地清除浮动
+  * [StackOverflow：Which method of ‘clearfix’ is best?](http://stackoverflow.com/questions/211383/what-methods-of-clearfix-can-i-use)：清除浮动黑科技完整解读
