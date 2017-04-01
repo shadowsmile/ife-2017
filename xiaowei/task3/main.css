@@ -5,12 +5,19 @@
 }
 .left{
 	width: 200px;
+	border-color: #999;
 	padding: 20px;
 }
 .right{
 	width: 120px;
+	border-color: #999;
 	padding: 20px;
 }
 .center{
+	border-color: #999;
 	padding: 20px;
+}
+img{
+	width: 80px;
+	height: 80px;
 }
