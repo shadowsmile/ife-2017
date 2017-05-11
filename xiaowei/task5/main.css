@@ -40,11 +40,6 @@ ul.nav-link a:hover,a:active {
 	text-decoration:underline;
 	color:#000000;
 }
-/*---------------*/
-
-/*div.space{
-	overflow: auto;
-}*/
 
 h2 {
 	font-size: 25px;
@@ -94,10 +89,14 @@ a.link-inline:hover,a.link-inline:active {
 ul.list {
 	list-style-type: none;
 }
+div#image {
+
+}
 div.img-case {
 	height: auto;
 	width: 200px;
 	border: 1px solid #333333;
+	display: inline-block;
 }
 div.img-case p {
 	text-align: center;
@@ -128,6 +127,7 @@ tr.total {
 	font-weight: bold;
 }
 
+/*-------侧边栏-------*/
 div.sidebar{
 	float: right;
 	width: 320px;
@@ -175,7 +175,7 @@ div.copyright {
 	padding: 15px 0;
 	height: 30px;
 	width: auto;
-	background-color: #DDDDDD;
+	background-color: #999999;
 	color: #222222;
 	text-align: center;
 }
