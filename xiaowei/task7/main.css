@@ -18,6 +18,8 @@ a.logo {
 }
 a.logo img {
 	margin: 15px 10px 15px 0;
+	width: 31px;
+	height: 31px;
 }
 a.logo span {
 	font-size: 21px;
@@ -118,3 +120,17 @@ p.redicon {
 p.word {
 	border-right: 2px solid #989898;
 }
+/*-----关于新世界，你不知道的-----*/
+div.unknow {
+	background-color: #ececec;
+	width: 100%;
+	text-align: center;
+	padding: 70px 0;
+}
+div.unknow p {
+	margin-top: 30px;
+	font-size: 53px;
+  	font-family: "SimHei";
+  	color: rgba(150,150,150,0.5);
+}
+/*-----查找活动-----*/
