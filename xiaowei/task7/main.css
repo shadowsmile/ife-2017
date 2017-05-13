@@ -3,7 +3,10 @@
 	padding: 0px;
 }
 body {
-	min-width: 800px;
+	min-width: 1280px;
+}
+.inline-block {
+	display: inline-block;
 }
 /*-----导航栏-----*/
 div.header {
@@ -68,7 +71,7 @@ i.fa-user-o {
 div.exper {
 	background-image: url('image/newlife.jpg');
 	background-size: 100% 100%;
-	min-width: 800px;
+	min-width: 1280px;
 }
 div.cover1 {
 	background-color: rgba(0,0,0,0.2);
@@ -99,7 +102,7 @@ p.start {
 }
 /*-----四点描述-----*/
 div.desc {
-	min-width: 800px;
+	min-width: 1280px;
 	font-size: 14px;
   	font-family: "SimHei";
   	color: #777777;
@@ -125,7 +128,7 @@ div.unknow {
 	background-color: #ececec;
 	width: 100%;
 	text-align: center;
-	padding: 70px 0;
+	padding: 90px 0;
 }
 div.unknow p {
 	margin-top: 30px;
@@ -134,3 +137,171 @@ div.unknow p {
   	color: rgba(150,150,150,0.5);
 }
 /*-----查找活动-----*/
+#find {
+	background-image: url('image/map.jpg');
+	background-size: 100% 100%;
+	min-width: 1280px;
+}
+div.cover2 {
+	background-color: rgba(170,50,50,0.2);
+	padding: 50px 0 130px 0;
+	text-align: center;
+}
+p.find-head {
+	font-size: 21px;
+  	font-family: "Microsoft YaHei";
+  	color: #ffffff;
+  	margin-bottom: 30px;
+}
+p.find-content {
+	font-size: 12px;
+  	font-family: "Microsoft YaHei";
+  	color: rgba(255,255,255,0.8);
+  	margin-bottom: 50px;
+}
+select,button {
+	width: 236px;
+	height: 36px;
+	margin: 0 15px;
+}
+select {
+	color: #787878;
+}
+button {
+	background-color: #be4f48;
+	border-color: #be4f48;
+	color: #ffffff;
+}
+/*-----最新活动-----*/
+div.event {
+	background-color: #f8f8f8;
+	text-align: center;
+}
+div.event-city {
+	display: inline-block;
+	margin: 100px 18px 115px 18px;
+}
+div.sh {
+	position: relative;
+	top: -8px;
+}
+div.event-city p {
+  	font-family: "SimHei";
+}
+p.cityname {
+	font-size: 16px;
+	color: #323333;
+}
+p.detail {
+	font-size: 12px;
+	color: #818181;
+	margin-top: 6px;
+}
+p.shanghai {
+	font-size: 21px;
+	color: #323333;
+}
+div.event-pic {
+	width: 220px;
+	height: 325px;
+	background-color: #ffffff;
+	padding-top: 12px;
+	margin: 12px 0;
+	border: 1px solid #dadada;
+}
+/*-----项目介绍-----*/
+#intro {}
+/*-----上半部分-----*/
+div.intro-up {}
+/*-----左上部分-----*/
+div.intro-up-left {
+	width: 66%;
+	min-width: 850px;
+	background-image: url('image/world.jpg');
+	background-size: 100% 100%;
+	color: #ffffff;
+	font-family: "Microsoft YaHei";
+	text-align: center;
+	padding-top: 100px;
+	padding-bottom: 158px;
+}
+p.newworld {
+	font-size: 50px;
+	position: relative;
+	top: 30px;
+}
+p.time {
+	font-size: 128px;
+}
+p.mewbeijing {
+	font-size: 22px;
+}
+/*-----右上部分-----*/
+div.intro-up-right {
+	width: 33%;
+	min-width: 430px;
+	text-align: center;
+	position: relative;
+	/*top: -65px;*/
+}
+div.intro-up-right-content {
+	width: 290px;
+	margin: 0 auto;
+	text-align: center;
+}
+div.intro-up-right-content p {
+	font-family: "SimSun";
+}
+p.newworld01, p.slash, p.red01 {
+	font-size: 20px;
+	font-weight: bold;
+	line-height: 50px;
+}
+p.slash {
+	width: 7px;
+	font-size: 22px;
+	color: #7f8080;
+	transform: rotate(15deg);
+	position: relative;
+	top: 1px;
+	left: -2px;
+}
+p.red01 {
+	color: #e74f4d;
+}
+p.newworld-circ {
+	font-size: 12px;
+	color: #b0b0b0;
+	line-height: 30px;
+	text-align: left;
+}
+div.moredetail {
+	font-size: 12px;
+  	font-family: "Microsoft YaHei";
+  	color: #e6797c;
+  	width: 104px;
+  	border: 1px solid #e4666a;
+  	margin: 50px auto 25px;
+  	padding: 10px 0;
+}
+
+
+
+
+/*-----页脚-----*/
+div.footer {
+	min-width: 1140px;
+	height: 40px;
+	background-color: #2f2f38;
+	padding: 33px 40px 0 100px;
+	font-size: 12px;
+  	font-family: "SimSun";
+	color: #ffffff;
+}
+span.footer-right {
+	float: right;
+}
+div.footer span a {
+	color: #ffffff;
+	text-decoration: none;
+}
