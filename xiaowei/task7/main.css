@@ -47,7 +47,7 @@ li.nav-li {
 	margin: 0 10px;
 }
 li.login {
-	margin: 0px;
+	margin: 0 10px;
 	padding: 0px;
 }
 li.nav-li a:link,a:visited {
@@ -62,10 +62,8 @@ li.login a {
   	color: #e9605e;
 	text-decoration: none;
 }
-i.fa-user-o {
-	position: relative;
-	left: 5px;
-	top: -0.5px;
+li.login img {
+	vertical-align: text-bottom;
 }
 /*-----首图-----*/
 div.exper {
@@ -239,10 +237,10 @@ p.mewbeijing {
 /*-----右上部分-----*/
 div.intro-up-right {
 	width: 33%;
-	min-width: 430px;
+	min-width: 425px;
 	text-align: center;
 	position: relative;
-	/*top: -65px;*/
+	top: 30px;
 }
 div.intro-up-right-content {
 	width: 290px;
@@ -284,6 +282,65 @@ div.moredetail {
   	margin: 50px auto 25px;
   	padding: 10px 0;
 }
+li.dot {
+	display: inline-block;
+	margin: 0 5px;
+}
+/*-----下半部分-----*/
+div.intro-down {
+	font-size: 21px;
+	font-family: "SimHei";
+}
+div.intro-down div {
+	text-align: center;
+}
+/*-----下左部分-----*/
+div.intro-down-left {
+	width: 33%;
+	min-width: 425px;
+	background-color: #e7504d;
+	color: #ffffff;
+	padding: 188px 0;
+}
+p.lovelife1 {
+	line-height: 30px;
+}
+p.line1 {
+	font-size: 35px;
+}
+div.intro-down-left div {
+	border: 1px solid #ffffff;
+	padding: 10px 0;
+	width: 170px;
+	margin: 0 auto;
+}
+/*-----下中部分-----*/
+div.intro-down-center {
+	width: 33%;
+	min-width: 425px;
+}
+p.lovelife2 {
+	color: #323333;
+	line-height: 30px;
+}
+p.line2 {
+	color: #aaaaaa;
+	font-size: 35px;
+}
+div.intro-down-center div {
+	color: #e74f4d;
+	border: 1px solid #e95a58;
+	padding: 10px 0;
+	width: 170px;
+	margin: 0 auto;
+}
+/*-----下右部分-----*/
+div.intro-down-right {
+	width: 33%;
+	min-width: 425px;
+	background-color: #777777;
+}
+
 
 
 
