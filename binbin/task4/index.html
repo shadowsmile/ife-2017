@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>任务四：基础JavaScript练习（一）</title>
+	<style type="text/css">
+		li {
+			height: 50px;
+			background-color: red;
+			margin: 20px;
+			padding: 0 10px;
+			font-size: 35px;
+			color: white;
+			text-align: center;
+			float: left;
+			display: inline-block;
+		}
+	</style>
+</head>
+<body>
+	<input id="number" type="text">
+	<button id="leftin">左侧入</button>
+	<button id="rightin">右侧入</button>
+	<button id="leftout">左侧出</button>
+	<button id="rightout">右侧出</button>
+	<ul id="queue">
+		<!--<li>输出数字队列</li>-->
+	</ul>
+
+	<script type="text/javascript">
+		var queue=document.getElementById("queue");
+		var number=document.getElementById("number");
+		/*检查数字输入的合法性*/
+		function inspect() {
+			if (number.value=="") {
+				alert("请输入数字！");
+				init();
+			} else if (isNaN(number.value)) {
+				alert("请输入数字！");
+				init();
+			} else {
+				return number;
+			}
+		}
+		/*左侧入*/
+		function insertLeft() {
+			inspect();
+			if (number.value) {
+				oLi=document.createElement("li");
+				oLi.innerText=number.value;
+				queue.insertBefore(oLi,queue.firstChild);
+				init();
+			}
+		}
+		/*右侧入*/
+		function insertRight() {
+			inspect();
+			if (number.value) {
+				oLi=document.createElement("li");
+				oLi.innerText=number.value;
+				queue.appendChild(oLi);
+				init();
+			}
+		}
+		/*左侧出*/
+		function removeLeft() {
+			alert("确认删除数字："+queue.firstChild.innerText+"？");
+			queue.removeChild(queue.firstChild);
+		}
+		/*右侧出*/
+		function removeRight() {
+			alert("确认删除数字："+queue.lastChild.innerText+"？");
+			queue.removeChild(queue.lastChild);
+		}
+		/*点击选中并删除*/
+		function remove(event) {
+			alert("确认删除选中数字："+event.target.innerText+"？");
+			queue.removeChild(event.target);
+		}
+		/*初始化*/
+		function init() {
+			var btnLeftIn=document.getElementById("leftin");
+			var btnRightIn=document.getElementById("rightin");
+			var btnLeftOut=document.getElementById("leftout");
+			var btnRightOut=document.getElementById("rightout");
+
+			number.value="";
+			number.focus();
+
+			btnLeftIn.onclick=insertLeft;
+			btnRightIn.onclick=insertRight;
+			btnLeftOut.onclick=removeLeft;
+			btnRightOut.onclick=removeRight;
+
+			queue.onclick=remove;
+		}
+
+		init();
+	</script>
+</body>
+</html>

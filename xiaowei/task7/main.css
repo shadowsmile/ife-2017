@@ -290,6 +290,8 @@ li.dot {
 div.intro-down {
 	font-size: 21px;
 	font-family: "SimHei";
+	height: 521px;
+	overflow: hidden;
 }
 div.intro-down div {
 	text-align: center;
@@ -301,6 +303,8 @@ div.intro-down-left {
 	background-color: #e7504d;
 	color: #ffffff;
 	padding: 188px 0;
+	position: relative;
+	top: -206px;
 }
 p.lovelife1 {
 	line-height: 30px;
@@ -318,6 +322,9 @@ div.intro-down-left div {
 div.intro-down-center {
 	width: 33%;
 	min-width: 425px;
+	position: relative;
+	top: -206px;
+	left: -10px;
 }
 p.lovelife2 {
 	color: #323333;
@@ -336,13 +343,108 @@ div.intro-down-center div {
 }
 /*-----下右部分-----*/
 div.intro-down-right {
-	width: 33%;
-	min-width: 425px;
-	background-color: #777777;
+	width: 430px;
+	height: 521px;
+	background-image: url('image/newage.jpg');
+	position: relative;
+	left: -21px;
 }
-
-
-
+div.cover3 {
+	width: 430px;
+	height: 521px;
+	background-color: rgba(0,0,0,0.4);
+}
+/*-----申请加入-----*/
+#community {
+	padding: 119px 138px 167px 138px;
+}
+/*-----上部-----*/
+div.join {
+	margin-bottom: 106px;
+}
+p.join-head {
+	font-size: 21px;
+  	font-family: "SimHei";
+  	color: rgb( 50, 51, 51 );
+  	line-height: 1.446;
+  	text-align: center;
+}
+p.join-content {
+	font-size: 12px;
+  	font-family: "Microsoft YaHei";
+  	color: rgb( 170, 170, 170 );
+  	line-height: 1.5;
+  	text-align: center;
+}
+/*-----下右表格-----*/
+div.form {
+	float: right;
+	width: 640px;
+}
+div.form p,input,textarea,button {
+	background-color: #ededef;
+	border: none;
+}
+div.form p {
+	margin-bottom: 14px;
+}
+p.input {
+	height: 40px;
+	width: 310px;
+}
+p.textarea {
+	height: 120px;
+	width: 640px;
+}
+p.button {
+	height: 40px;
+	width: 640px;
+}
+/*-----下左条款-----*/
+div.term {
+	width: 288px;
+	margin-right: 75px;
+}
+p.term-head {
+	font-size: 14px;
+  	font-family: "SimHei";
+  	color: rgba( 35, 24, 21, 0.8 );
+  	line-height: 2;
+}
+p.term-content {
+	font-size: 12px;
+  	font-family: "SimSun";
+  	color: rgba( 35, 24, 21, 0.6 );
+  	line-height: 1.75;
+}
+p.more {
+	font-size: 12px;
+  	font-family: "SimSun";
+  	color: rgba( 35, 24, 21, 0.6 );
+  	line-height: 1.621;
+  	text-align: right;
+}
+/*-----联系我们-----*/
+#about {
+	background-color: #32353e;
+	padding: 92px 0 73px 0;
+	text-align: center;
+}
+p.contact-head {
+	font-size: 21px;
+  	font-family: "SimHei";
+  	color: rgb( 255, 255, 255 );
+  	line-height: 2.303;
+}
+p.contact-content {
+	font-size: 12px;
+  	font-family: "SimSun";
+  	color: rgb( 255, 255, 255 );
+  	line-height: 1.5;
+}
+#about img {
+	margin: 0 5px;
+}
 
 
 /*-----页脚-----*/

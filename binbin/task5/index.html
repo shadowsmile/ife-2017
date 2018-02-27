@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>任务五：基础JavaScript练习（二）</title>
+	<style type="text/css">
+		input {
+			margin: 0 20px;
+		}
+		button#sort {
+			margin-left: 30px;
+		}
+		li {
+			width: 20px;
+			margin: 1px;
+			background-color: red;
+			float: left;
+			display: inline-block;
+			cursor: pointer;
+		}
+	</style>
+</head>
+<body>
+	<input id="number" type="text">
+	<button id="leftin">左侧入</button>
+	<button id="rightin">右侧入</button>
+	<button id="leftout">左侧出</button>
+	<button id="rightout">右侧出</button>
+	<button id="sort">排序</button>
+	<ul id="queue"></ul>
+
+	<script type="text/javascript">
+		var queue=document.getElementById("queue");
+		var number=document.getElementById("number");
+		var count=document.getElementsByTagName("li");
+		
+		/*检查数字输入的合法性*/
+		function inspect() {
+			if (count.length>=60) {
+				alert("队列数量超过限制（60个）！");
+			} else if (number.value=="") {
+				alert("请输入数字！");
+			} else if (isNaN(number.value)) {
+				alert("请输入数字！");
+			} else if (Number(number.value)<10||Number(number.value)>100) {
+				alert("请输入10-100之内的数字！");
+			} else {
+				num=Number(number.value);
+				topSpace=100-num;
+			}
+		}
+		/*左侧入*/
+		function insertLeft() {
+			inspect();
+			if (num) {
+				oLi=document.createElement("li");
+				queue.insertBefore(oLi,queue.firstChild);
+				queue.firstChild.style.height=num+"px";
+				queue.firstChild.style.marginTop=topSpace+"px";
+			}
+			init();
+		}
+		/*右侧入*/
+		function insertRight() {
+			inspect();
+			if (num) {
+				oLi=document.createElement("li");
+				queue.appendChild(oLi);
+				queue.lastChild.style.height=num+"px";
+				queue.lastChild.style.marginTop=topSpace+"px";
+			}
+			init();
+		}
+		/*左侧出*/
+		function removeLeft() {
+			alert("确认删除数字："+queue.firstChild.offsetHeight+"？");
+			queue.removeChild(queue.firstChild);
+		}
+		/*右侧出*/
+		function removeRight() {
+			alert("确认删除数字："+queue.lastChild.offsetHeight+"？");
+			queue.removeChild(queue.lastChild);
+		}
+		/*点击选中并删除*/
+		function remove(event) {
+			alert("确认删除选中数字："+event.target.offsetHeight+"？");
+			queue.removeChild(event.target);
+		}
+		/*排序*/
+		function sortData() {
+			/*获取所有数值*/
+			for (i=0;i<queue.childNodes.length;i++) {
+				data.push(queue.childNodes[i].offsetHeight);
+			}
+			/*清空屏幕*/
+			queue.innerHTML="";
+			/*data排序（从小到大）*/
+			data.sort(function(a,b) {
+ 				return a-b;
+ 			});
+ 			/*输出到屏幕*/
+			for (i=0;i<data.length;i++) {
+				oLi=document.createElement("li");
+				queue.appendChild(oLi);
+				queue.lastChild.style.height=data[i]+"px";
+				topBlank=new Array;
+				topBlank[i]=100-data[i];
+				queue.lastChild.style.marginTop=topBlank[i]+"px";
+			}
+		}
+		/*初始化*/
+		function init() {
+
+			var btnLeftIn=document.getElementById("leftin");
+			var btnRightIn=document.getElementById("rightin");
+			var btnLeftOut=document.getElementById("leftout");
+			var btnRightOut=document.getElementById("rightout");
+			var btnSort=document.getElementById("sort");
+
+			data=new Array;
+			data.splice(0,data.length);/*清空data*/
+			
+			num=0;
+			number.value="";/*清空输入框*/
+			number.focus();/*焦点移至输入框*/
+
+			btnLeftIn.onclick=insertLeft;
+			btnRightIn.onclick=insertRight;
+			btnLeftOut.onclick=removeLeft;
+			btnRightOut.onclick=removeRight;
+			queue.onclick=remove;
+			btnSort.onclick=sortData;
+		}
+
+		init();
+	</script>
+</body>
+</html>

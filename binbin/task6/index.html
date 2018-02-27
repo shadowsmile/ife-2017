@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>任务六：基础JavaScript练习（三）</title>
+	<style type="text/css">
+		li {
+			height: 30px;
+			background-color: red;
+			margin: 20px;
+			padding: 5px;
+			font-family: KaiTi;
+			font-size: 25px;
+			color: white;
+			text-align: center;
+			float: left;
+			display: inline-block;
+		}
+		div {
+			margin-top: 10px;
+		}
+	</style>
+</head>
+<body>
+	<textarea id="content"></textarea><br/>
+	<button id="leftin">左侧入</button>
+	<button id="rightin">右侧入</button>
+	<button id="leftout">左侧出</button>
+	<button id="rightout">右侧出</button>
+	<br/>
+	<div>
+		<input id="searchBox" type="text">
+		<button id="search">查询</button>
+	</div>
+	
+	<ul id="queue"></ul>
+
+	<script type="text/javascript">
+		var queue=document.getElementById("queue");
+		var text=document.getElementById("content");
+		var searchBox=document.getElementById("searchBox");
+
+		/*左侧入*/
+		function insertLeft() {
+			var content=text.value.split(/[,，.。、\s\n]/);
+			for (i=content.length;i>0;i--) {
+				oLi=document.createElement("li");
+				oLi.innerText=content[i-1];
+				queue.insertBefore(oLi,queue.firstChild);
+			}
+			text.value="";
+			text.focus();
+		}
+
+		/*右侧入*/
+		function insertRight() {
+			var content=text.value.split(/[,，.。、\s\n]/);
+			for (i=0;i<content.length;i++) {
+				oLi=document.createElement("li");
+				oLi.innerText=content[i];
+				queue.appendChild(oLi);
+			}
+			text.value="";
+			text.focus();
+		}
+
+		/*左侧出*/
+		function removeLeft() {
+			alert("确认删除："+queue.firstChild.innerText+"？");
+			queue.removeChild(queue.firstChild);
+		}
+
+		/*右侧出*/
+		function removeRight() {
+			alert("确认删除："+queue.lastChild.innerText+"？");
+			queue.removeChild(queue.lastChild);
+		}
+
+		/*点击选中并删除*/
+		function remove(event) {
+			alert("确认删除选中内容："+event.target.innerText+"？");
+			queue.removeChild(event.target);
+		}
+
+		/*模糊查询*/
+		function fuzzyMatch() {
+			data=new Array;
+			data.splice(0,data.length);
+			for (i=0;i<queue.childNodes.length;i++) {
+				data.push(queue.childNodes[i].innerText);
+			}
+			var searchContent=searchBox.value;
+			for (i=0;i<queue.childNodes.length;i++) {
+				if (queue.childNodes[i].innerText.indexOf(searchContent)>-1) {
+					queue.childNodes[i].style.color="black";
+				} else {
+					queue.childNodes[i].style.color="white";
+				}
+			}
+			searchBox.value="";
+			searchBox.focus();
+		}
+
+		/*初始化*/
+		function init() {
+			var btnLeftIn=document.getElementById("leftin");
+			var btnRightIn=document.getElementById("rightin");
+			var btnLeftOut=document.getElementById("leftout");
+			var btnRightOut=document.getElementById("rightout");
+			var btnSearch=document.getElementById("search");		
+
+			btnLeftIn.onclick=insertLeft;
+			btnRightIn.onclick=insertRight;
+			btnLeftOut.onclick=removeLeft;
+			btnRightOut.onclick=removeRight;
+			queue.onclick=remove;
+			btnSearch.onclick=fuzzyMatch;
+		}
+
+		init();
+	</script>
+</body>
+</html>
