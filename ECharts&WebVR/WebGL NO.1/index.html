@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="three.js"></script>
+	<script type="text/javascript">
+		function init() {
+			var renderer = new THREE.WebGLRenderer({
+				canvas: document.getElementById("mainCanvas")
+			});
+			renderer.setClearColor(0x000000);
+
+			var scene = new THREE.Scene();
+
+			var camera = new THREE.PerspectiveCamera(45, 400/300, 0.1, 100);
+			camera.position.set(8, 5, 20);
+			camera.lookAt(new THREE.Vector3(1, 0, 0));
+			scene.add(camera);
+
+			var material = new THREE.MeshLambertMaterial({
+				color: 0xeeeeee
+			});
+
+			var cube = new THREE.Mesh(new THREE.CubeGeometry(4, 3, 3), material);
+			cube.position.set(0, 1, 0);
+			scene.add(cube);
+
+			var torus1 = torus2 = new THREE.Mesh(new THREE.TorusGeometry(0.75, 0.1875, 16, 64), material);
+			torus1.position.set(-1, -1, 1.5);
+			torus2.position.set(1, -1, 1.5);
+			scene.add(torus1);
+			scene.add(torus2);
+
+			renderer.render(scene, camera);
+		}
+	</script>
+	<title>WebGL No.1 - Three.js 入门</title>
+</head>
+<body onload="init()">
+	<canvas id="mainCanvas" width="400px" height="300px"></canvas>
+</body>
+</html>
