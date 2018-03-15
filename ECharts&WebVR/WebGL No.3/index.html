@@ -28,27 +28,27 @@
 			scene.add(camera);
 
 			//纹理贴图
-			/*var textureCar = THREE.ImageUtils.loadTexture("../img/car.jpg", {}, function() {
+			var textureCar = new THREE.TextureLoader().load("../img/car.jpg", function() {
 				renderer.render(scene, camera);
 			});
 
-			var textureWheel = THREE.ImageUtils.loadTexture("../img/wheel.jpg", {}, function() {
+			var textureWheel = new THREE.TextureLoader().load("../img/wheel.jpg", function() {
 				renderer.render(scene, camera);
 			});
 
-			var textureFloor = new THREE.TextureLoader().load("../img/floor.jpg");
+			var textureFloor = new THREE.TextureLoader().load("../img/floor.jpg", function() {
+				renderer.render(scene, camera);
+			});
 			textureFloor.wrapS = textureFloor.wrapT = THREE.RepeatWrapping;
-			textureFloor.repeat.set(10, 10);*/
+			textureFloor.repeat.set(10, 10);
 
 			//材质
 			var materialP = new THREE.MeshPhongMaterial({
-				color: 0xeeeeee
-				//map: textureCar
+				map: textureCar
 			});
 
 			var materialL = new THREE.MeshLambertMaterial({
-				color: 0xeeeeee
-				//map: textureWheel
+				map: textureWheel
 			});
 
 			//车身
@@ -92,8 +92,7 @@
 
 			//地板
 			var floor = new THREE.Mesh(new THREE.PlaneGeometry(40, 60), new THREE.MeshLambertMaterial({
-				color: 0xbcee68
-				//map: textureFloor
+				map: textureFloor
 			}));
 			floor.rotation.x = -Math.PI/2;
 			floor.position.y = -3.5;
