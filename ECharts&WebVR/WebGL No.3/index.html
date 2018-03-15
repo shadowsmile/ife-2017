@@ -34,14 +34,11 @@
 
 			var textureWheel = THREE.ImageUtils.loadTexture("../img/wheel.jpg", {}, function() {
 				renderer.render(scene, camera);
-			});*/
-
-			//https://ss1.bdstatic.com/70cFuXSh_Q1YnxGkpoWK1HF6hhy/it/u=1058067668,3737256091&fm=27&gp=0.jpg
-			//../img/floor.jpg
+			});
 
 			var textureFloor = new THREE.TextureLoader().load("../img/floor.jpg");
 			textureFloor.wrapS = textureFloor.wrapT = THREE.RepeatWrapping;
-			textureFloor.repeat.set(10, 10);
+			textureFloor.repeat.set(10, 10);*/
 
 			//材质
 			var materialP = new THREE.MeshPhongMaterial({
@@ -95,8 +92,8 @@
 
 			//地板
 			var floor = new THREE.Mesh(new THREE.PlaneGeometry(40, 60), new THREE.MeshLambertMaterial({
-				color: 0xbcee68,
-				map: textureFloor
+				color: 0xbcee68
+				//map: textureFloor
 			}));
 			floor.rotation.x = -Math.PI/2;
 			floor.position.y = -3.5;
