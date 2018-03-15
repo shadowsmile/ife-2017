@@ -2,34 +2,50 @@
 <html>
 <head>
 	<meta charset="utf-8">
-	<script type="text/javascript" src="three.js"></script>
+	<script type="text/javascript" src="../lib/three.js"></script>
 	<script type="text/javascript">
 		function init() {
 			var renderer = new THREE.WebGLRenderer({
 				canvas: document.getElementById("mainCanvas")
 			});
-			renderer.setClearColor(0x000000);
+			renderer.setClearColor(0x333333);
 
 			var scene = new THREE.Scene();
 
-			var camera = new THREE.PerspectiveCamera(45, 400/300, 0.1, 100);
-			camera.position.set(8, 5, 20);
-			camera.lookAt(new THREE.Vector3(1, 0, 0));
+			var camera = new THREE.PerspectiveCamera(45, 400/300, 1, 100);
+			camera.position.set(25, 15, 25);
+			camera.lookAt(new THREE.Vector3(0, 0, 0));
 			scene.add(camera);
 
 			var material = new THREE.MeshLambertMaterial({
 				color: 0xeeeeee
 			});
 
-			var cube = new THREE.Mesh(new THREE.CubeGeometry(4, 3, 3), material);
-			cube.position.set(0, 1, 0);
+			var cube = new THREE.Mesh(new THREE.CubeGeometry(15, 3, 8), material);
 			scene.add(cube);
 
-			var torus1 = torus2 = new THREE.Mesh(new THREE.TorusGeometry(0.75, 0.1875, 16, 64), material);
-			torus1.position.set(-1, -1, 1.5);
-			torus2.position.set(1, -1, 1.5);
+			var upCube = new THREE.Mesh(new THREE.CubeGeometry(10, 3, 8), material);
+			upCube.position.y = 3;
+			scene.add(upCube);
+
+			var torus = new THREE.TorusGeometry(1, 0.5, 16, 64);
+
+			var torus1 = new THREE.Mesh(torus, material);
+			torus1.position.set(-4, -2, 4);
 			scene.add(torus1);
+			var torus2 = new THREE.Mesh(torus, material);
+			torus2.position.set(4, -2, 4);
 			scene.add(torus2);
+			var torus3 = new THREE.Mesh(torus, material);
+			torus3.position.set(-4, -2, -4);
+			scene.add(torus3);
+			var torus4 = new THREE.Mesh(torus, material);
+			torus4.position.set(4, -2, -4);
+			scene.add(torus4);
+
+			var light = new THREE.DirectionalLight();
+			light.position.set(12, 15, 7);
+			scene.add(light);
 
 			renderer.render(scene, camera);
 		}

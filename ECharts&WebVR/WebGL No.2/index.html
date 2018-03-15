@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<script type="text/javascript" src="../lib/three.js"></script>
+	<script type="text/javascript">
+		function init() {
+			var renderer = new THREE.WebGLRenderer({
+				canvas: document.getElementById("mainCanvas"),
+				antialias: true,  //清除锯齿
+				precision: "highp"  //渲染精度
+			});
+			renderer.setClearColor(0x444444);
+			renderer.shadowMap.enabled = true;  //开启阴影
+			//renderer.shadowMapSoft = true;  //软阴影？
+			renderer.shadowMap.type = THREE.PCFSoftShadowMap;//软阴影
+
+			var scene = new THREE.Scene();
+
+			var camera = new THREE.PerspectiveCamera(45, 900/600, 1, 100);
+			camera.position.set(25, 15, 25);
+			camera.lookAt(new THREE.Vector3(0, 0, 0));
+			scene.add(camera);
+
+			//车身
+			var materialL = new THREE.MeshLambertMaterial({
+				color: 0xeeeeee
+			});
+
+			var cube = new THREE.Mesh(new THREE.CubeGeometry(15, 3, 8), materialL);
+			cube.castShadow = true;
+			cube.receiveShadow = true;
+			scene.add(cube);
+
+			var upCube = new THREE.Mesh(new THREE.CubeGeometry(10, 3, 8), materialL);
+			upCube.position.y = 3;
+			upCube.castShadow = true;
+			upCube.receiveShadow = true;
+			scene.add(upCube);
+
+			//车轮
+			var torus = new THREE.TorusGeometry(1, 0.5, 16, 64);
+			var materialP = new THREE.MeshPhongMaterial({
+				color: 0xeeeeee
+			});
+
+			var torus1 = new THREE.Mesh(torus, materialP);
+			torus1.position.set(-4, -2, 4);
+			torus1.castShadow = true;
+			torus1.receiveShadow = true;
+			scene.add(torus1);
+
+			var torus2 = new THREE.Mesh(torus, materialP);
+			torus2.position.set(4, -2, 4);
+			torus2.castShadow = true;
+			torus2.receiveShadow = true;
+			scene.add(torus2);
+
+			var torus3 = new THREE.Mesh(torus, materialP);
+			torus3.position.set(-4, -2, -4);
+			torus3.castShadow = true;
+			torus3.receiveShadow = true;
+			scene.add(torus3);
+
+			var torus4 = new THREE.Mesh(torus, materialP);
+			torus4.position.set(4, -2, -4);
+			torus4.castShadow = true;
+			torus4.receiveShadow = true;
+			scene.add(torus4);
+
+			//地板
+			var plane = new THREE.Mesh(new THREE.PlaneGeometry(40, 60), new THREE.MeshLambertMaterial({
+				color: 0xbcee68
+			}));
+			plane.rotation.x = -Math.PI/2;
+			plane.position.y = -3.5;
+			plane.receiveShadow = true;  //接受阴影
+			scene.add(plane);
+
+			//平行光源
+			var light = new THREE.DirectionalLight(0xffffff);
+			light.position.set(-5, 5, 10);
+			light.castShadow = true;
+
+			light.shadow.camera.near = 1;
+			light.shadow.camera.far = 100;
+			light.shadow.camera.left = -20;
+			light.shadow.camera.right = 20;
+			light.shadow.camera.top = 15;
+			light.shadow.camera.bottom = -15;
+
+			//light.shadow.mapSize.width = 4096; //设置后边缘有锯齿
+			//light.shadow.mapSize.height = 4096;
+
+			scene.add(light);
+
+			//渲染
+			renderer.render(scene, camera);
+		}
+	</script>
+	<title>WebGL No.2 - 光与影</title>
+</head>
+<body onload="init()">
+	<canvas id="mainCanvas" width="900px" height="600px"></canvas>
+</body>
+</html>
