@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>WebGL No.5 - 动画</title>
+	<style>
+		 body {
+		 	margin: 0;
+		 	overflow: hidden;
+		 }
+	</style>
+</head>
+<body onload="init()">
+	<canvas id="mainCanvas"></canvas>
+
+	<script type="text/javascript" src="../lib/three.js"></script>
+	<script type="text/javascript" src="../lib/stats.min.js"></script>
+	<script type="text/javascript" src="../lib/OrbitControls.js"></script>
+
+	<script type="text/javascript">
+
+		var renderer;
+		var scene;
+		var camera;
+		var stats = null;
+
+		var controls = {
+			moveForward: false,
+			moveBackward: false,
+			moveLeft: false,
+			moveRight: false,
+		};
+
+		init();
+		animate();
+
+		function init() {
+			renderer = new THREE.WebGLRenderer({
+				canvas: document.getElementById("mainCanvas"),
+				antialias: true,  //清除锯齿
+				precision: "highp"  //渲染精度
+			});
+			renderer.setSize(window.innerWidth, window.innerHeight);
+			renderer.setClearColor(0x444444);
+			renderer.shadowMap.enabled = true;  //开启阴影
+			renderer.shadowMap.type = THREE.PCFSoftShadowMap;//软阴影
+
+			scene = new THREE.Scene();
+
+			camera = new THREE.PerspectiveCamera(45, window.innerWidth/window.innerHeight, 1, 100);
+			camera.position.set(-50, 50, 0);
+			camera.lookAt(new THREE.Vector3(0, 0, 0));
+			scene.add(camera);
+
+			//车身
+			var materialL = new THREE.MeshLambertMaterial({
+				color: 0xeeeeee
+			});
+
+			var cube = new THREE.Mesh(new THREE.CubeGeometry(15, 3, 8), materialL);
+			cube.castShadow = true;
+			cube.receiveShadow = true;
+			scene.add(cube);
+
+			var upCube = new THREE.Mesh(new THREE.CubeGeometry(11, 3, 8), materialL);
+			upCube.position.y = 3;
+			upCube.castShadow = true;
+			upCube.receiveShadow = true;
+			scene.add(upCube);
+
+			//车轮
+			var torus = new THREE.TorusGeometry(1, 0.5, 16, 64);
+			var materialP = new THREE.MeshPhongMaterial({
+				color: 0xeeeeee
+			});
+
+			var torus1 = new THREE.Mesh(torus, materialP);
+			torus1.position.set(-4, -2, 4);
+			torus1.castShadow = true;
+			torus1.receiveShadow = true;
+			scene.add(torus1);
+
+			var torus2 = new THREE.Mesh(torus, materialP);
+			torus2.position.set(4, -2, 4);
+			torus2.castShadow = true;
+			torus2.receiveShadow = true;
+			scene.add(torus2);
+
+			var torus3 = new THREE.Mesh(torus, materialP);
+			torus3.position.set(-4, -2, -4);
+			torus3.castShadow = true;
+			torus3.receiveShadow = true;
+			scene.add(torus3);
+
+			var torus4 = new THREE.Mesh(torus, materialP);
+			torus4.position.set(4, -2, -4);
+			torus4.castShadow = true;
+			torus4.receiveShadow = true;
+			scene.add(torus4);
+
+			//地板
+			var plane = new THREE.Mesh(new THREE.PlaneGeometry(90, 80), new THREE.MeshLambertMaterial({
+				color: 0x9add57
+			}));
+			plane.rotation.x = -Math.PI/2;
+			plane.position.y = -3.5;
+			plane.receiveShadow = true;  //接受阴影
+			scene.add(plane);
+
+			//平行光源
+			var light = new THREE.DirectionalLight(0xffffff);
+			light.position.set(1, 2, -2);
+			light.castShadow = true;
+
+			//light.shadow.camera.near = 1;
+			//light.shadow.camera.far = 100;
+			light.shadow.camera.left = -20;
+			light.shadow.camera.right = 20;
+			//light.shadow.camera.top = 15;
+			//light.shadow.camera.bottom = -15;
+
+			scene.add(light);
+
+			var ambientLight = new THREE.AmbientLight(0x333333);
+			scene.add(ambientLight);
+
+			stats = new Stats();
+			stats.domElement.style.positin = "absoute";
+			stats.domElement.style.right = "0px";
+			stats.domElement.style.top = "0px";
+			document.body.appendChild(stats.domElement);
+
+			window.addEventListener( 'resize', onWindowResize, false );
+			document.addEventListener( 'keydown', onKeyDown, false );  //监听按下按键
+			document.addEventListener( 'keyup', onKeyUp, false );  //监听放开按键
+
+			//Controls?
+			cameraControls = new THREE.OrbitControls( camera, renderer.domElement );
+			cameraControls.target.set( 0, 50, 0 );
+			cameraControls.update();
+
+			//渲染
+			renderer.render(scene, camera);
+		}		
+
+		function onWindowResize() {
+			camera.aspect = window.innerWidth / window.innerHeight;
+			camera.updateProjectionMatrix();
+			renderer.setSize( window.innerWidth, window.innerHeight );
+			//controls.handleResize();
+			renderer.render(scene, camera);
+		}
+
+		function onKeyDown( event ) {
+			event.stopPropagation();
+			switch( event.keyCode ) {
+				case 38: /*UP*/
+				case 87: /*W*/  controls.moveForward = true; break;
+
+				case 40:
+				case 83: controls.moveBackward = true; break;
+
+				case 37:
+				case 65: controls.moveLeft = true; break;
+
+				case 39:
+				case 68: controls.moveRight = true; break;
+			}
+		}
+
+		function onKeyUp( event ) {
+			event.stopPropagation();
+			switch( event.keyCode ) {
+				case 38: /*UP*/
+				case 87: /*W*/  controls.moveForward = false; break;
+
+				case 40:
+				case 83: controls.moveBackward = false; break;
+
+				case 37:
+				case 65: controls.moveLeft = false; break;
+
+				case 39:
+				case 68: controls.moveRight = false; break;
+			}
+		}
+
+		function animate() {
+			requestAnimationFrame( animate );
+			renderer.render( scene, camera );
+			stats.update();
+		}
+	</script>
+</body>
+</html>
